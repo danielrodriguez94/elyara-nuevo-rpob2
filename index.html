@@ -12,7 +12,13 @@
   <link rel="icon" href="assets/logo-header.jpg" />
   <title>ELYARA Creative | Web Design</title>
 </head>
-<body>
+<body class="home-page">
+<div class="home-video-layer" aria-hidden="true">
+  <video class="home-video" autoplay muted loop playsinline preload="metadata" poster="assets/home-background-poster.jpg">
+    <source src="assets/home-background.mp4" type="video/mp4" />
+  </video>
+  <div class="home-video-overlay"></div>
+</div>
 <header class="site-header">
   <div class="shell nav-shell">
     <a class="brand" href="index.html" aria-label="ELYARA Creative home">
@@ -45,9 +51,9 @@
 </header>
 
 <main>
-  <section class="hero">
-    <div class="shell hero-grid">
-      <div class="reveal">
+  <section class="hero hero--video">
+    <div class="shell hero-grid hero-grid--single">
+      <div class="reveal hero-copy">
         <span class="kicker" data-i18n="home_kicker">WEB DESIGN FOR REAL BUSINESSES</span>
         <h1 data-i18n="home_title">Websites built to make your business look as strong online as it is in real life.</h1>
         <p data-i18n="home_body">ELYARA Creative designs modern, clear and responsive websites for companies and businesses of any size.</p>
@@ -56,10 +62,6 @@
           <a class="btn btn--outline" href="contact.html"><span data-i18n="home_contact">Start a project</span><span>→</span></a>
         </div>
         <div class="hero-note"><span data-i18n="home_note1">Responsive design</span><span data-i18n="home_note2">Multilingual options</span><span data-i18n="home_note3">Built for real business goals</span></div>
-      </div>
-      <div class="hero-visual reveal">
-        <img src="assets/hero-studio.jpg" alt="Modern ELYARA web design workspace" />
-        <div class="floating-label"><small data-i18n="floating_small">FOCUSED ON</small><strong data-i18n="floating_big">Web experiences that feel simple</strong></div>
       </div>
     </div>
   </section>
