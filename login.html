@@ -1,0 +1,47 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Sign in · ELYARA Creative</title><meta name="theme-color" content="#0b2238">
+<meta name="description" content="ELYARA Creative — websites, digital design and creative business support.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/elyara-logo.png">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="config.js" defer></script>
+<script src="app.js" defer></script>
+</head><body>
+
+<header class="site-header">
+  <div class="shell nav">
+    <a class="brand" href="index.html"><img src="assets/elyara-logo.png" alt="ELYARA Creative"></a>
+    <nav class="nav-links desktop"><a class="" href="index.html" data-t="home"></a><a class="" href="services.html" data-t="services"></a><a class="" href="portfolio.html" data-t="portfolio"></a><a class="" href="about.html" data-t="about"></a><a class="" href="contact.html" data-t="contact"></a></nav>
+    <div class="nav-actions">
+      <button class="lang" data-lang-toggle>EN / ES</button>
+      <a class="btn btn--olive desktop" href="login.html" data-auth-label data-t="login"></a>
+      <button class="menu-btn" data-menu>☰</button>
+    </div>
+  </div>
+  <nav class="mobile-menu" data-mobile>
+    <a href="index.html" data-t="home"></a><a href="services.html" data-t="services"></a><a href="portfolio.html" data-t="portfolio"></a><a href="about.html" data-t="about"></a><a href="contact.html" data-t="contact"></a>
+    <a href="login.html" data-auth-label data-t="login"></a>
+  </nav>
+</header>
+<main class="login-shell">
+<section class="login-card reveal">
+<img src="assets/elyara-logo.png" alt="ELYARA Creative">
+<div class="kicker">CLIENT ACCESS</div>
+<h1 class="serif" style="font-size:3rem;color:var(--navy);margin:.35rem 0" data-t="login_title"></h1>
+<p data-t="login_body"></p>
+<button class="google-btn" data-google-login>G&nbsp;&nbsp; <span data-t="continue_google"></span></button>
+<p style="font-size:.75rem;color:#68717a;margin-top:14px">Secure sign-in powered by Google + Supabase.</p>
+</section></main>
+
+<footer class="footer">
+  <div class="shell footer-grid">
+    <img src="assets/elyara-logo.png" alt="ELYARA Creative">
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div>© 2026 ELYARA Creative</div>
+  </div>
+</footer>
+</body></html>
