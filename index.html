@@ -18,6 +18,7 @@
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
@@ -32,6 +33,219 @@
   <!-- Main CSS -->
   <link rel="stylesheet" href="styles.css">
 
+  <!-- =====================================================
+       HERO HOME
+       Video limpio + logo + texto sin cuadro
+       ===================================================== -->
+  <style>
+
+    .home-page .hero.hero--video {
+      position: relative;
+      min-height: calc(100svh - 72px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent !important;
+      overflow: hidden;
+    }
+
+    .home-page .hero-grid--single {
+      min-height: calc(100svh - 72px);
+      width: 100%;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: 1fr !important;
+      padding-top: 72px;
+      padding-bottom: 72px;
+    }
+
+    .home-page .hero-copy {
+      width: min(980px, 92vw);
+      max-width: 980px !important;
+
+      margin: 0 auto;
+
+      padding: 0 !important;
+
+      background: transparent !important;
+
+      border: 0 !important;
+      border-radius: 0 !important;
+
+      box-shadow: none !important;
+
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+
+      text-align: center;
+    }
+
+    .home-page .hero-brand-logo {
+      display: block;
+
+      width: clamp(190px, 24vw, 330px);
+      height: auto;
+
+      margin: 0 auto 30px;
+
+      object-fit: contain;
+
+      border: 0;
+      box-shadow: none;
+
+      mix-blend-mode: multiply;
+    }
+
+    .home-page .hero-copy .kicker {
+      display: block;
+
+      margin-bottom: 14px;
+
+      color: #b87859;
+
+      font-family: "Montserrat", sans-serif;
+
+      font-size: clamp(.72rem, 1vw, .9rem);
+
+      font-weight: 700;
+
+      letter-spacing: .18em;
+
+      text-transform: uppercase;
+
+      text-shadow:
+        0 1px 12px rgba(255,255,255,.55);
+    }
+
+    .home-page .hero-copy h1 {
+      max-width: 900px;
+
+      margin: 0 auto 20px;
+
+      color: #0a233a;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size:
+        clamp(3rem, 6.2vw, 6.6rem);
+
+      font-weight: 600;
+
+      line-height: .95;
+
+      letter-spacing: -.03em;
+
+      text-shadow:
+        0 2px 18px rgba(255,255,255,.72),
+        0 1px 2px rgba(255,255,255,.85);
+    }
+
+    .home-page .hero-copy > p {
+      max-width: 720px;
+
+      margin: 0 auto 30px;
+
+      color: #0a233a;
+
+      font-family: "Montserrat", sans-serif;
+
+      font-size:
+        clamp(.98rem, 1.35vw, 1.18rem);
+
+      line-height: 1.75;
+
+      text-shadow:
+        0 1px 14px rgba(255,255,255,.8);
+    }
+
+    .home-page .hero-actions {
+      justify-content: center;
+
+      margin-top: 0;
+    }
+
+    .home-page .hero-note {
+      display: none !important;
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    @media (max-width: 760px) {
+
+      .home-page .hero.hero--video,
+      .home-page .hero-grid--single {
+        min-height: calc(100svh - 64px);
+      }
+
+      .home-page .hero-grid--single {
+        padding-top: 46px;
+        padding-bottom: 46px;
+      }
+
+      .home-page .hero-copy {
+        width: min(92vw, 680px);
+      }
+
+      .home-page .hero-brand-logo {
+        width: min(230px, 64vw);
+
+        margin-bottom: 22px;
+      }
+
+      .home-page .hero-copy h1 {
+        font-size:
+          clamp(2.65rem, 12vw, 4.6rem);
+
+        line-height: .98;
+      }
+
+      .home-page .hero-copy > p {
+        font-size: .96rem;
+
+        line-height: 1.65;
+      }
+
+      .home-page .hero-actions {
+        flex-direction: column;
+
+        align-items: center;
+      }
+
+      .home-page .hero-actions .btn {
+        width: min(100%, 290px);
+
+        justify-content: center;
+      }
+
+    }
+
+
+    /* =====================================================
+       REDUCED MOTION
+       ===================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .home-page .home-video {
+        display: none;
+      }
+
+      .home-page .hero.hero--video {
+        background:
+          url("assets/home-background-poster.jpg")
+          center / cover
+          no-repeat !important;
+      }
+
+    }
+
+  </style>
+
+
   <!-- Favicon -->
   <link
     rel="icon"
@@ -40,6 +254,7 @@
   >
 
   <title>ELYARA Creative | Web Design</title>
+
 </head>
 
 
@@ -47,10 +262,13 @@
 
 
   <!-- =====================================================
-       ANIMATED VIDEO BACKGROUND
+       VIDEO BACKGROUND
        ===================================================== -->
 
-  <div class="home-video-layer" aria-hidden="true">
+  <div
+    class="home-video-layer"
+    aria-hidden="true"
+  >
 
     <video
       class="home-video"
@@ -83,7 +301,7 @@
     <div class="shell nav-shell">
 
 
-      <!-- Logo -->
+      <!-- LOGO HEADER -->
 
       <a
         class="brand"
@@ -101,7 +319,7 @@
       </a>
 
 
-      <!-- Desktop navigation -->
+      <!-- DESKTOP NAVIGATION -->
 
       <nav
         class="desktop-nav"
@@ -116,6 +334,7 @@
           Home
         </a>
 
+
         <a
           data-page
           href="services.html"
@@ -123,6 +342,7 @@
         >
           Web Services
         </a>
+
 
         <a
           data-page
@@ -132,6 +352,7 @@
           Portfolio
         </a>
 
+
         <a
           data-page
           href="about.html"
@@ -139,6 +360,7 @@
         >
           About
         </a>
+
 
         <a
           data-page
@@ -151,12 +373,12 @@
       </nav>
 
 
-      <!-- Navigation actions -->
+      <!-- NAVIGATION ACTIONS -->
 
       <div class="nav-actions">
 
 
-        <!-- Language selector -->
+        <!-- LANGUAGE -->
 
         <div class="language-wrap">
 
@@ -193,12 +415,14 @@
               🇺🇸 English
             </button>
 
+
             <button
               type="button"
               data-lang="es"
             >
               🇲🇽 Español
             </button>
+
 
             <button
               type="button"
@@ -207,6 +431,7 @@
               🇧🇷 Português
             </button>
 
+
             <button
               type="button"
               data-lang="it"
@@ -214,12 +439,14 @@
               🇮🇹 Italiano
             </button>
 
+
             <button
               type="button"
               data-lang="fr"
             >
               🇫🇷 Français
             </button>
+
 
             <button
               type="button"
@@ -233,7 +460,7 @@
         </div>
 
 
-        <!-- Mobile menu button -->
+        <!-- MOBILE MENU -->
 
         <button
           class="menu-btn"
@@ -249,7 +476,9 @@
     </div>
 
 
-    <!-- Mobile navigation -->
+    <!-- =====================================================
+         MOBILE NAVIGATION
+         ===================================================== -->
 
     <nav
       class="mobile-nav"
@@ -265,6 +494,7 @@
         Home
       </a>
 
+
       <a
         data-page
         href="services.html"
@@ -272,6 +502,7 @@
       >
         Web Services
       </a>
+
 
       <a
         data-page
@@ -281,6 +512,7 @@
         Portfolio
       </a>
 
+
       <a
         data-page
         href="about.html"
@@ -288,6 +520,7 @@
       >
         About
       </a>
+
 
       <a
         data-page
@@ -303,24 +536,36 @@
 
 
   <!-- =====================================================
-       MAIN CONTENT
+       MAIN
        ===================================================== -->
 
   <main>
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          HERO
-         =================================================== -->
+         ===================================================== -->
 
     <section class="hero hero--video">
 
-      <div class="shell hero-grid hero-grid--single">
-
-
-        <!-- Only this content box sits over the video -->
+      <div
+        class="shell hero-grid hero-grid--single"
+      >
 
         <div class="reveal hero-copy">
+
+
+          <!-- LOGO GRANDE SOBRE EL VIDEO -->
+
+          <img
+            class="hero-brand-logo"
+            src="assets/logo-header.jpg"
+            alt="ELYARA Creative"
+            width="404"
+            height="116"
+            decoding="async"
+          >
+
 
           <span
             class="kicker"
@@ -331,18 +576,26 @@
 
 
           <h1 data-i18n="home_title">
-            Websites built to make your business look as strong online as it is in real life.
+
+            Websites built to make your business
+            look as strong online as it is in real life.
+
           </h1>
 
 
           <p data-i18n="home_body">
-            ELYARA Creative designs modern, clear and responsive websites for companies and businesses of any size.
+
+            ELYARA Creative designs modern,
+            clear and responsive websites
+            for companies and businesses of any size.
+
           </p>
 
 
-          <!-- Buttons -->
+          <!-- BUTTONS -->
 
           <div class="hero-actions">
+
 
             <a
               class="btn btn--navy"
@@ -353,7 +606,9 @@
                 View our work
               </span>
 
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">
+                →
+              </span>
 
             </a>
 
@@ -367,28 +622,12 @@
                 Start a project
               </span>
 
-              <span aria-hidden="true">→</span>
+              <span aria-hidden="true">
+                →
+              </span>
 
             </a>
 
-          </div>
-
-
-          <!-- Notes -->
-
-          <div class="hero-note">
-
-            <span data-i18n="home_note1">
-              Responsive design
-            </span>
-
-            <span data-i18n="home_note2">
-              Multilingual options
-            </span>
-
-            <span data-i18n="home_note3">
-              Built for real business goals
-            </span>
 
           </div>
 
@@ -399,16 +638,14 @@
     </section>
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          SERVICES
-         =================================================== -->
+         ===================================================== -->
 
     <section class="section">
 
       <div class="shell">
 
-
-        <!-- Text box -->
 
         <div class="section-head reveal">
 
@@ -421,18 +658,26 @@
 
 
           <h2 data-i18n="focus_title">
-            One focus: professional websites.
+
+            One focus:
+            professional websites.
+
           </h2>
 
 
           <p data-i18n="focus_body">
-            We are simplifying ELYARA around the service that creates the strongest digital foundation for a business: a well-designed website.
+
+            We are simplifying ELYARA around
+            the service that creates the strongest
+            digital foundation for a business:
+            a well-designed website.
+
           </p>
 
         </div>
 
 
-        <!-- Services cards -->
+        <!-- SERVICES -->
 
         <div class="service-grid">
 
@@ -443,12 +688,17 @@
               01
             </div>
 
+
             <h3 data-i18n="service1">
               Business websites
             </h3>
 
+
             <p data-i18n="service1_desc">
-              Professional websites for businesses and organizations.
+
+              Professional websites for
+              businesses and organizations.
+
             </p>
 
           </article>
@@ -460,12 +710,17 @@
               02
             </div>
 
+
             <h3 data-i18n="service3">
               Multilingual websites
             </h3>
 
+
             <p data-i18n="service3_desc">
-              Sites prepared for multiple languages.
+
+              Sites prepared
+              for multiple languages.
+
             </p>
 
           </article>
@@ -477,12 +732,17 @@
               03
             </div>
 
+
             <h3 data-i18n="service5">
               Website redesign
             </h3>
 
+
             <p data-i18n="service5_desc">
-              A cleaner and more current version of an existing website.
+
+              A cleaner and more current version
+              of an existing website.
+
             </p>
 
           </article>
@@ -495,16 +755,16 @@
     </section>
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          HOW WE WORK
-         =================================================== -->
+         ===================================================== -->
 
     <section class="section section--soft">
 
       <div class="shell split">
 
 
-        <!-- Portfolio image -->
+        <!-- PORTFOLIO IMAGE -->
 
         <div class="split-image reveal">
 
@@ -518,7 +778,7 @@
         </div>
 
 
-        <!-- Text box -->
+        <!-- TEXT -->
 
         <div
           class="section-head reveal"
@@ -534,12 +794,20 @@
 
 
           <h2 data-i18n="why_title">
-            Clear structure. Clean interface. No unnecessary clutter.
+
+            Clear structure.
+            Clean interface.
+            No unnecessary clutter.
+
           </h2>
 
 
           <p data-i18n="why_body">
-            Every project begins with the business goal, then we organize the content and design around the people who will actually use the site.
+
+            Every project begins with the business goal,
+            then we organize the content and design
+            around the people who will actually use the site.
+
           </p>
 
 
@@ -548,7 +816,9 @@
 
             <div class="check-item">
 
-              <b aria-hidden="true">✓</b>
+              <b aria-hidden="true">
+                ✓
+              </b>
 
               <span data-i18n="why1">
                 Designed for your business
@@ -559,7 +829,9 @@
 
             <div class="check-item">
 
-              <b aria-hidden="true">✓</b>
+              <b aria-hidden="true">
+                ✓
+              </b>
 
               <span data-i18n="why2">
                 Easy to navigate
@@ -570,7 +842,9 @@
 
             <div class="check-item">
 
-              <b aria-hidden="true">✓</b>
+              <b aria-hidden="true">
+                ✓
+              </b>
 
               <span data-i18n="why3">
                 Built for every screen
@@ -588,9 +862,9 @@
     </section>
 
 
-    <!-- ===================================================
+    <!-- =====================================================
          CTA
-         =================================================== -->
+         ===================================================== -->
 
     <section class="cta-strip">
 
@@ -600,11 +874,18 @@
         <div>
 
           <h2 data-i18n="cta_title">
-            Need a website for your business?
+
+            Need a website
+            for your business?
+
           </h2>
 
+
           <p data-i18n="cta_body">
-            We can start with the structure and scope before discussing pricing.
+
+            We can start with the structure
+            and scope before discussing pricing.
+
           </p>
 
         </div>
@@ -619,7 +900,9 @@
             Contact ELYARA
           </span>
 
-          <span aria-hidden="true">→</span>
+          <span aria-hidden="true">
+            →
+          </span>
 
         </a>
 
@@ -669,12 +952,14 @@
           Home
         </a>
 
+
         <a
           href="services.html"
           data-i18n="nav_services"
         >
           Web Services
         </a>
+
 
         <a
           href="portfolio.html"
@@ -683,12 +968,14 @@
           Portfolio
         </a>
 
+
         <a
           href="about.html"
           data-i18n="nav_about"
         >
           About
         </a>
+
 
         <a
           href="contact.html"
@@ -703,6 +990,7 @@
       <div class="footer-copy">
 
         ©
+
         <span data-year></span>
 
         ELYARA Creative ·
@@ -721,7 +1009,6 @@
 
   <!-- =====================================================
        JAVASCRIPT
-       defer evita bloquear la carga visual inicial
        ===================================================== -->
 
   <script
@@ -729,15 +1016,18 @@
     defer
   ></script>
 
+
   <script
     src="config.js"
     defer
   ></script>
 
+
   <script
     src="translations.js"
     defer
   ></script>
+
 
   <script
     src="app.js"
