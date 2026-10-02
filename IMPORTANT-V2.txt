@@ -1,0 +1,20 @@
+ELYARA v2 VISUAL FIX
+
+IMPORTANT:
+The screenshot with broken logos and a blank beige hero means the /assets folder is not being found.
+
+After upload, GitHub must show:
+assets/
+  elyara-logo.png
+  elyara-logo-full.jpg
+  about-1.jpg
+  about-2.jpg
+  hero.jpg
+  paper.jpg
+
+This V2 also changes the Home hero:
+- No giant Create / Elevate / Inspire overlay.
+- No text box.
+- Full official ELYARA logo image as the main cover.
+- Only a short tagline and buttons near the bottom.
+- All other production functionality is preserved.
