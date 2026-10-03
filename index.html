@@ -1,0 +1,151 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ELYARA Creative</title><meta name="theme-color" content="#0b2238">
+<meta name="description" content="ELYARA Creative — websites, digital design and creative business support.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/elyara-logo.png">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+<script src="config.js" defer></script>
+<script src="app.js" defer></script>
+</head><body>
+
+<header class="site-header">
+  <div class="shell nav">
+    <a class="brand" href="index.html"><img src="assets/elyara-logo.png" alt="ELYARA Creative"></a>
+    <nav class="nav-links desktop"><a class="active" href="index.html" data-t="home"></a><a class="" href="services.html" data-t="services"></a><a class="" href="portfolio.html" data-t="portfolio"></a><a class="" href="about.html" data-t="about"></a><a class="" href="contact.html" data-t="contact"></a></nav>
+    <div class="nav-actions">
+      <button class="lang" data-lang-toggle>EN / ES</button>
+      <a class="btn btn--olive desktop" href="login.html" data-auth-label data-t="login"></a>
+      <button class="menu-btn" data-menu>☰</button>
+    </div>
+  </div>
+  <nav class="mobile-menu" data-mobile>
+    <a href="index.html" data-t="home"></a><a href="services.html" data-t="services"></a><a href="portfolio.html" data-t="portfolio"></a><a href="about.html" data-t="about"></a><a href="contact.html" data-t="contact"></a>
+    <a href="login.html" data-auth-label data-t="login"></a>
+  </nav>
+</header>
+
+
+<main>
+
+<section class="hero hero--clean">
+  <div class="hero-clean-bg" aria-hidden="true"></div>
+
+  <div class="shell hero-clean-inner">
+    <div class="hero-clean-content reveal">
+
+      <img
+        class="hero-clean-logo"
+        src="assets/elyara-logo.png"
+        alt="ELYARA Creative"
+      >
+
+      <div class="hero-clean-kicker" data-t="hero_kicker"></div>
+
+      <div class="hero-actions">
+        <a class="btn btn--navy" href="services.html" data-t="explore"></a>
+        <a class="btn btn--ghost" href="portfolio.html" data-t="viewwork"></a>
+      </div>
+
+      <div class="hero-meta hero-meta--clean">
+        <span data-t="websites"></span>
+        <span>•</span>
+        <span data-t="marketing"></span>
+        <span>•</span>
+        <span data-t="design"></span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section home-intro">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <div class="kicker" data-t="services_kicker"></div>
+        <h2 data-t="services_title"></h2>
+      </div>
+
+      <p data-t="hero_body"></p>
+    </div>
+
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-media">
+          <div class="browser">
+            <div class="browser-bar"></div>
+            <div class="browser-screen">
+              <strong>Web Design</strong>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 data-t="websites"></h3>
+          <p>Responsive business websites, multilingual experiences and custom digital platforms.</p>
+          <a class="btn btn--olive" href="services.html">Explore →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media">
+          <div class="browser">
+            <div class="browser-bar"></div>
+            <div class="browser-screen light">
+              <strong>Digital Marketing</strong>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h3 data-t="marketing"></h3>
+          <p>Creative support for social media, campaign assets and digital visibility.</p>
+          <a class="btn btn--olive" href="services.html">Explore →</a>
+        </div>
+      </article>
+
+      <article class="card reveal">
+        <div class="card-media">
+          <img src="assets/about-2.jpg" alt="Creative materials without people">
+        </div>
+        <div class="card-body">
+          <h3 data-t="design"></h3>
+          <p>Digital menus, flyers, business cards and polished branded materials.</p>
+          <a class="btn btn--olive" href="services.html">Explore →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="shell about-grid">
+    <div class="about-copy reveal">
+      <div class="kicker" data-t="about_kicker"></div>
+      <h2 data-t="about_title"></h2>
+      <p data-t="about_body"></p>
+      <a class="btn btn--navy" href="about.html">More about ELYARA →</a>
+    </div>
+
+    <div class="about-gallery reveal">
+      <img src="assets/about-1.jpg" alt="ELYARA creative workspace without people">
+      <img src="assets/about-2.jpg" alt="ELYARA creative materials without people">
+      <img src="assets/elyara-logo-full.jpg" alt="ELYARA Creative full logo">
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+
+<footer class="footer">
+  <div class="shell footer-grid">
+    <img src="assets/elyara-logo.png" alt="ELYARA Creative">
+    <div class="footer-links">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </div>
+    <div>© 2026 ELYARA Creative</div>
+  </div>
+</footer>
+</body></html>
