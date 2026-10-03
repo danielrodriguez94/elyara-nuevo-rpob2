@@ -147,7 +147,7 @@ const TRANSLATIONS = {
     portfolio_chuparrosa_desc: "Página web creada para una marca premium de mezcal, diseñada para presentar su identidad, productos e historia con una presencia visual sólida y elegante.",
 
     portfolio_sandra_type: "PÁGINA WEB BILINGÜE PARA NEGOCIO",
-    portfolio_sandra_desc: "Página web bilingüe creada para un negocio de cuidado infantil familiar, enfocada en transmitir confianza, información clara y facilitar el contacto con las familias.",
+    portfolio_sandra_desc: "Página web bilingüe creada para un negocio de cuidado infantil familiar, enfocada en transmitir confianza, información clara y facilitar la comunicación con las familias.",
 
     portfolio_cumbre_type: "ACADEMIA ONLINE · PLATAFORMA DIGITAL",
     portfolio_cumbre_desc: "Academia online con inicio de sesión con Google, contenido privado, clases estructuradas, pagos y herramientas digitales para estudiantes.",
@@ -338,7 +338,30 @@ function setText(selector, value) {
 }
 
 
+/* =========================================================
+   TRADUCCIÓN DIRECTA data-en / data-es
+   ========================================================= */
+
+function translateDirectBilingualText() {
+
+  document.querySelectorAll("[data-en][data-es]").forEach(el => {
+
+    el.textContent =
+      lang === "es"
+        ? el.dataset.es
+        : el.dataset.en;
+
+  });
+
+}
+
+
+/* =========================================================
+   HEADER + FOOTER
+   ========================================================= */
+
 function translateHeaderAndFooter() {
+
   const linkMap = {
     "index.html": "home",
     "services.html": "services",
@@ -347,134 +370,286 @@ function translateHeaderAndFooter() {
     "contact.html": "contact"
   };
 
+
   document.querySelectorAll(".footer-links a").forEach(a => {
-    const file = a.getAttribute("href")?.split("/").pop();
+
+    const file =
+      a.getAttribute("href")
+        ?.split("/")
+        .pop();
+
 
     if (linkMap[file]) {
-      a.textContent = t(linkMap[file]);
+      a.textContent =
+        t(linkMap[file]);
     }
+
   });
 
+
   document.querySelectorAll(".footer-grid > div:last-child").forEach(el => {
-    el.textContent = `© 2026 ELYARA Creative · ${t("footer_rights")}`;
+
+    el.textContent =
+      `© 2026 ELYARA Creative · ${t("footer_rights")}`;
+
   });
+
 }
 
 
+/* =========================================================
+   HOME
+   ========================================================= */
+
 function translateHome() {
-  const homeHero = document.querySelector(".hero--elyara, .hero--clean");
+
+  const homeHero =
+    document.querySelector(
+      ".hero--elyara, .hero--clean"
+    );
+
 
   if (!homeHero) {
     return;
   }
 
-  setText(".hero-elyara-kicker", t("hero_kicker"));
-  setText(".hero-elyara-subtitle", t("hero_short"));
 
-  setText(".hero-clean-kicker", t("hero_kicker"));
-
-  const heroService = homeHero.querySelector('a[href="services.html"]');
-  const heroPortfolio = homeHero.querySelector('a[href="portfolio.html"]');
-
-  if (heroService) {
-    heroService.textContent = t("explore");
-  }
-
-  if (heroPortfolio) {
-    heroPortfolio.textContent = t("viewwork");
-  }
-
-
-  const section = document.querySelector(".home-services-clean, .home-intro");
-
-  if (section) {
-    const kicker = section.querySelector(".section-head .kicker");
-    const title = section.querySelector(".section-head h2");
-    const intro = section.querySelector(".section-head p");
-
-    if (kicker) {
-      kicker.textContent = t("services_kicker");
-    }
-
-    if (title) {
-      title.textContent = t("services_title");
-    }
-
-    if (intro) {
-      intro.textContent = t("services_body");
-    }
-
-
-    const cards = section.querySelectorAll(".card");
-
-    const cardData = [
-      ["websites", "home_web_desc"],
-      ["marketing", "home_marketing_desc"],
-      ["design", "home_design_desc"]
-    ];
-
-    cards.forEach((card, i) => {
-      if (!cardData[i]) {
-        return;
-      }
-
-      const h3 = card.querySelector("h3");
-      const p = card.querySelector(".card-body p");
-      const a = card.querySelector(".card-body a");
-
-      if (h3) {
-        h3.textContent = t(cardData[i][0]);
-      }
-
-      if (p) {
-        p.textContent = t(cardData[i][1]);
-      }
-
-      if (a) {
-        a.textContent = `${t("explore")} →`;
-      }
-    });
-  }
-
-
-  const aboutHome = document.querySelector(
-    ".simple-about-home, .section--soft .about-copy"
+  setText(
+    ".hero-elyara-kicker",
+    t("hero_kicker")
   );
 
-  if (aboutHome) {
-    const kicker = aboutHome.querySelector(".kicker");
-    const h2 = aboutHome.querySelector("h2");
-    const p = aboutHome.querySelector("p");
-    const a = aboutHome.querySelector('a[href="about.html"]');
+
+  setText(
+    ".hero-elyara-subtitle",
+    t("hero_short")
+  );
+
+
+  setText(
+    ".hero-clean-kicker",
+    t("hero_kicker")
+  );
+
+
+  const heroService =
+    homeHero.querySelector(
+      'a[href="services.html"]'
+    );
+
+
+  const heroPortfolio =
+    homeHero.querySelector(
+      'a[href="portfolio.html"]'
+    );
+
+
+  if (heroService) {
+    heroService.textContent =
+      t("explore");
+  }
+
+
+  if (heroPortfolio) {
+    heroPortfolio.textContent =
+      t("viewwork");
+  }
+
+
+  const section =
+    document.querySelector(
+      ".home-services-clean, .home-intro"
+    );
+
+
+  if (section) {
+
+    const kicker =
+      section.querySelector(
+        ".section-head .kicker"
+      );
+
+
+    const title =
+      section.querySelector(
+        ".section-head h2"
+      );
+
+
+    const intro =
+      section.querySelector(
+        ".section-head p"
+      );
+
 
     if (kicker) {
-      kicker.textContent = t("about_kicker");
+      kicker.textContent =
+        t("services_kicker");
     }
+
+
+    if (title) {
+      title.textContent =
+        t("services_title");
+    }
+
+
+    if (intro) {
+      intro.textContent =
+        t("services_body");
+    }
+
+
+    const cards =
+      section.querySelectorAll(
+        ".card"
+      );
+
+
+    const cardData = [
+
+      [
+        "websites",
+        "home_web_desc"
+      ],
+
+      [
+        "marketing",
+        "home_marketing_desc"
+      ],
+
+      [
+        "design",
+        "home_design_desc"
+      ]
+
+    ];
+
+
+    cards.forEach(
+      (card, i) => {
+
+        if (!cardData[i]) {
+          return;
+        }
+
+
+        const h3 =
+          card.querySelector("h3");
+
+
+        const p =
+          card.querySelector(
+            ".card-body p"
+          );
+
+
+        const a =
+          card.querySelector(
+            ".card-body a"
+          );
+
+
+        if (h3) {
+          h3.textContent =
+            t(cardData[i][0]);
+        }
+
+
+        if (p) {
+          p.textContent =
+            t(cardData[i][1]);
+        }
+
+
+        if (a) {
+          a.textContent =
+            `${t("explore")} →`;
+        }
+
+      }
+    );
+
+  }
+
+
+  const aboutHome =
+    document.querySelector(
+      ".simple-about-home, .section--soft .about-copy"
+    );
+
+
+  if (aboutHome) {
+
+    const kicker =
+      aboutHome.querySelector(
+        ".kicker"
+      );
+
+
+    const h2 =
+      aboutHome.querySelector(
+        "h2"
+      );
+
+
+    const p =
+      aboutHome.querySelector(
+        "p"
+      );
+
+
+    const a =
+      aboutHome.querySelector(
+        'a[href="about.html"]'
+      );
+
+
+    if (kicker) {
+      kicker.textContent =
+        t("about_kicker");
+    }
+
 
     if (h2) {
-      h2.textContent = t("about_title");
+      h2.textContent =
+        t("about_title");
     }
+
 
     if (p) {
-      p.textContent = t("about_body");
+      p.textContent =
+        t("about_body");
     }
 
+
     if (a) {
-      a.textContent = `${t("about_more")} →`;
+      a.textContent =
+        `${t("about_more")} →`;
     }
+
   }
+
 }
 
 
+/* =========================================================
+   PORTFOLIO
+   ========================================================= */
+
 function translatePortfolio() {
-  if (!document.querySelector(".portfolio-grid")) {
+
+  if (
+    !document.querySelector(
+      ".portfolio-grid"
+    )
+  ) {
     return;
   }
 
 
-  const projects = document.querySelectorAll(".project");
-
   const projectData = [
+
     [
       "portfolio_chuparrosa_type",
       "portfolio_chuparrosa_desc"
@@ -489,94 +664,235 @@ function translatePortfolio() {
       "portfolio_cumbre_type",
       "portfolio_cumbre_desc"
     ]
+
   ];
 
 
-  projects.forEach((project, i) => {
-    if (!projectData[i]) {
-      return;
-    }
+  document.querySelectorAll(
+    ".project"
+  ).forEach(
+    (project, i) => {
 
-    const kicker = project.querySelector(".project-copy .kicker");
-    const p = project.querySelector(".project-copy p");
-    const btn = project.querySelector(".project-copy a");
+      if (!projectData[i]) {
+        return;
+      }
 
-    if (kicker) {
-      kicker.textContent = t(projectData[i][0]);
-    }
 
-    if (p) {
-      p.textContent = t(projectData[i][1]);
-    }
+      const kicker =
+        project.querySelector(
+          ".project-copy .kicker"
+        );
 
-    if (btn) {
-      btn.textContent = `${t("visit")} →`;
+
+      const description =
+        project.querySelector(
+          ".project-copy p"
+        );
+
+
+      const buttonLabel =
+        project.querySelector(
+          '.project-copy [data-t="visit"]'
+        );
+
+
+      const button =
+        project.querySelector(
+          ".project-copy a"
+        );
+
+
+      /*
+       * Si el HTML trae data-en/data-es,
+       * NO lo sobreescribimos aquí.
+       * La función translateDirectBilingualText()
+       * ya lo traduce.
+       */
+
+      if (
+        kicker &&
+        !(
+          kicker.dataset.en &&
+          kicker.dataset.es
+        )
+      ) {
+
+        kicker.textContent =
+          t(
+            projectData[i][0]
+          );
+
+      }
+
+
+      if (
+        description &&
+        !(
+          description.dataset.en &&
+          description.dataset.es
+        )
+      ) {
+
+        description.textContent =
+          t(
+            projectData[i][1]
+          );
+
+      }
+
+
+      if (buttonLabel) {
+
+        buttonLabel.textContent =
+          t("visit");
+
+      } else if (button) {
+
+        button.textContent =
+          `${t("visit")} →`;
+
+      }
+
     }
-  });
+  );
+
 }
 
 
+/* =========================================================
+   ABOUT
+   ========================================================= */
+
 function translateAbout() {
-  const values = document.querySelectorAll(".values .value");
+
+  const values =
+    document.querySelectorAll(
+      ".values .value"
+    );
+
 
   if (!values.length) {
     return;
   }
 
-  values.forEach((value, i) => {
-    const n = i + 1;
 
-    const b = value.querySelector("b");
-    const p = value.querySelector("p");
+  values.forEach(
+    (value, i) => {
 
-    if (b) {
-      b.textContent = t(`value${n}_title`);
+      const n =
+        i + 1;
+
+
+      const title =
+        value.querySelector("b");
+
+
+      const body =
+        value.querySelector("p");
+
+
+      if (title) {
+
+        title.textContent =
+          t(
+            `value${n}_title`
+          );
+
+      }
+
+
+      if (body) {
+
+        body.textContent =
+          t(
+            `value${n}_body`
+          );
+
+      }
+
     }
+  );
 
-    if (p) {
-      p.textContent = t(`value${n}_body`);
-    }
-  });
 }
 
 
+/* =========================================================
+   CONTACT
+   ========================================================= */
+
 function translateContact() {
-  const form = document.querySelector(
-    "[data-contact-form], .contact-card.form"
-  );
+
+  const form =
+    document.querySelector(
+      "[data-contact-form], .contact-card.form"
+    );
+
 
   if (!form) {
     return;
   }
 
 
-  const first = form.querySelector('input[name="first_name"]');
-  const last = form.querySelector('input[name="last_name"]');
-  const email = form.querySelector('input[name="email"]');
-  const message = form.querySelector('textarea[name="message"]');
-  const select = form.querySelector('select[name="service"]');
+  const first =
+    form.querySelector(
+      'input[name="first_name"]'
+    );
+
+
+  const last =
+    form.querySelector(
+      'input[name="last_name"]'
+    );
+
+
+  const email =
+    form.querySelector(
+      'input[name="email"]'
+    );
+
+
+  const message =
+    form.querySelector(
+      'textarea[name="message"]'
+    );
+
+
+  const select =
+    form.querySelector(
+      'select[name="service"]'
+    );
 
 
   if (first) {
-    first.placeholder = t("first_name");
+    first.placeholder =
+      t("first_name");
   }
+
 
   if (last) {
-    last.placeholder = t("last_name");
+    last.placeholder =
+      t("last_name");
   }
+
 
   if (email) {
-    email.placeholder = t("email");
+    email.placeholder =
+      t("email");
   }
 
+
   if (message) {
-    message.placeholder = t("message_placeholder");
+    message.placeholder =
+      t("message_placeholder");
   }
 
 
   if (select) {
+
     const labels = {
-      "": t("select_service"),
+
+      "":
+        t("select_service"),
 
       essential_website:
         lang === "es"
@@ -618,65 +934,136 @@ function translateContact() {
           ? "Marketing digital"
           : "Digital Marketing",
 
-      other: t("other")
+      other:
+        t("other")
+
     };
 
 
-    Array.from(select.options).forEach(option => {
-      if (labels[option.value] !== undefined) {
-        option.textContent = labels[option.value];
+    Array.from(
+      select.options
+    ).forEach(
+      option => {
+
+        if (
+          labels[
+            option.value
+          ] !== undefined
+        ) {
+
+          option.textContent =
+            labels[
+              option.value
+            ];
+
+        }
+
       }
-    });
+    );
+
   }
+
 }
 
+
+/* =========================================================
+   LOGIN
+   ========================================================= */
 
 function translateLogin() {
-  if (!document.querySelector(".login-card")) {
+
+  if (
+    !document.querySelector(
+      ".login-card"
+    )
+  ) {
     return;
   }
 
-  setText(".login-card .kicker", t("login_kicker"));
 
-  const secure = document.querySelector(".login-card p[style]");
+  setText(
+    ".login-card .kicker",
+    t("login_kicker")
+  );
+
+
+  const secure =
+    document.querySelector(
+      ".login-card p[style]"
+    );
+
 
   if (secure) {
-    secure.textContent = t("secure_login");
+
+    secure.textContent =
+      t("secure_login");
+
   }
+
 }
 
 
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
+
 function translateAccount() {
-  if (!document.querySelector("[data-account-page]")) {
+
+  if (
+    !document.querySelector(
+      "[data-account-page]"
+    )
+  ) {
     return;
   }
+
 
   setText(
     ".account-hero .kicker",
     t("account_kicker")
   );
+
 }
 
 
+/* =========================================================
+   STRIPE PAGES
+   ========================================================= */
+
 function translateStripePages() {
-  if (!document.querySelector(".success-card")) {
+
+  if (
+    !document.querySelector(
+      ".success-card"
+    )
+  ) {
     return;
   }
+
 
   setText(
     ".success-card .kicker",
     t("stripe_checkout")
   );
+
 }
 
 
+/* =========================================================
+   PAGE TITLE + META
+   ========================================================= */
+
 function translatePageMeta() {
+
   const page =
-    location.pathname.split("/").pop() ||
+    location.pathname
+      .split("/")
+      .pop() ||
     "index.html";
 
 
   const titles = {
+
     "index.html":
       "ELYARA Creative",
 
@@ -719,6 +1106,7 @@ function translatePageMeta() {
       lang === "es"
         ? "Pago cancelado · ELYARA Creative"
         : "Checkout canceled · ELYARA Creative"
+
   };
 
 
@@ -734,147 +1122,248 @@ function translatePageMeta() {
 
 
   if (meta) {
+
     meta.setAttribute(
+
       "content",
 
       lang === "es"
+
         ? "ELYARA Creative — páginas web, diseño digital y apoyo creativo para negocios."
+
         : "ELYARA Creative — websites, digital design and creative business support."
+
     );
+
   }
+
 }
 
 
+/* =========================================================
+   APLICAR IDIOMA
+   ========================================================= */
+
 function applyLanguage() {
-  document.documentElement.lang = lang;
+
+  document.documentElement.lang =
+    lang;
 
 
-  document.querySelectorAll("[data-t]").forEach(el => {
-    const key = el.dataset.t;
+  /*
+   * Sistema principal:
+   * data-t="clave"
+   */
 
-    if (
-      TRANSLATIONS[lang]?.[key]
-      !== undefined
-    ) {
-      el.textContent =
-        TRANSLATIONS[lang][key];
+  document.querySelectorAll(
+    "[data-t]"
+  ).forEach(
+    el => {
+
+      const key =
+        el.dataset.t;
+
+
+      if (
+        TRANSLATIONS[lang]?.[key]
+        !== undefined
+      ) {
+
+        el.textContent =
+          TRANSLATIONS[lang][key];
+
+      }
+
     }
-  });
+  );
 
+
+  /*
+   * Sistema directo:
+   *
+   * data-en="English"
+   * data-es="Español"
+   *
+   * IMPORTANTE:
+   * esto corrige las descripciones
+   * del portafolio.
+   */
+
+  translateDirectBilingualText();
+
+
+  /*
+   * Servicios
+   */
 
   document.querySelectorAll(
     "[data-service-name]"
-  ).forEach(el => {
-    const s =
-      SERVICES[
-        el.dataset.serviceName
-      ];
+  ).forEach(
+    el => {
 
-    if (s) {
-      el.textContent =
-        lang === "es"
-          ? s.es
-          : s.en;
+      const service =
+        SERVICES[
+          el.dataset.serviceName
+        ];
+
+
+      if (service) {
+
+        el.textContent =
+          lang === "es"
+            ? service.es
+            : service.en;
+
+      }
+
     }
-  });
+  );
 
 
   document.querySelectorAll(
     "[data-service-desc]"
-  ).forEach(el => {
-    const s =
-      SERVICES[
-        el.dataset.serviceDesc
-      ];
+  ).forEach(
+    el => {
 
-    if (s) {
-      el.textContent =
-        lang === "es"
-          ? s.descEs
-          : s.descEn;
+      const service =
+        SERVICES[
+          el.dataset.serviceDesc
+        ];
+
+
+      if (service) {
+
+        el.textContent =
+          lang === "es"
+            ? service.descEs
+            : service.descEn;
+
+      }
+
     }
-  });
+  );
 
 
   document.querySelectorAll(
     "[data-service-price]"
-  ).forEach(el => {
-    const s =
-      SERVICES[
-        el.dataset.servicePrice
-      ];
+  ).forEach(
+    el => {
 
-    if (!s) {
-      return;
+      const service =
+        SERVICES[
+          el.dataset.servicePrice
+        ];
+
+
+      if (!service) {
+        return;
+      }
+
+
+      const monthly =
+        service.monthly
+
+          ? (
+              lang === "es"
+                ? " / mes"
+                : " / month"
+            )
+
+          : "";
+
+
+      el.textContent =
+        `${t("from")} $${service.from}${monthly}`;
+
     }
+  );
 
 
-    const monthly =
-      s.monthly
-        ? (
-            lang === "es"
-              ? " / mes"
-              : " / month"
-          )
-        : "";
-
-
-    el.textContent =
-      `${t("from")} $${s.from}${monthly}`;
-  });
-
+  /*
+   * Kicker DIGITAL
+   */
 
   document.querySelectorAll(
     ".card .kicker"
-  ).forEach(el => {
+  ).forEach(
+    el => {
 
-    if (
-      el.textContent
-        .trim()
-        .toUpperCase()
-      === "DIGITAL"
-    ) {
-      el.textContent =
-        t("digital");
+      if (
+        el.textContent
+          .trim()
+          .toUpperCase()
+        === "DIGITAL"
+      ) {
+
+        el.textContent =
+          t("digital");
+
+      }
+
     }
+  );
 
-  });
 
+  /*
+   * Botón EN / ES
+   */
 
   document.querySelectorAll(
     "[data-lang-toggle]"
-  ).forEach(btn => {
+  ).forEach(
+    btn => {
 
-    btn.textContent =
-      "EN / ES";
+      btn.textContent =
+        "EN / ES";
 
-    btn.setAttribute(
-      "aria-label",
 
-      lang === "es"
-        ? "Cambiar idioma a inglés"
-        : "Change language to Spanish"
-    );
+      btn.setAttribute(
 
-  });
+        "aria-label",
+
+        lang === "es"
+
+          ? "Cambiar idioma a inglés"
+
+          : "Change language to Spanish"
+
+      );
+
+    }
+  );
 
 
   translateHeaderAndFooter();
+
   translateHome();
+
   translatePortfolio();
+
   translateAbout();
+
   translateContact();
+
   translateLogin();
+
   translateAccount();
+
   translateStripePages();
+
   translatePageMeta();
 
   updateAuthUi();
+
 }
 
 
+/* =========================================================
+   SUPABASE
+   ========================================================= */
+
 function configReady() {
+
   return Boolean(
+
     window.ELYARA_CONFIG
       ?.SUPABASE_URL &&
 
@@ -888,11 +1377,14 @@ function configReady() {
     !window.ELYARA_CONFIG
       .SUPABASE_ANON_KEY
       .includes("YOUR_")
+
   );
+
 }
 
 
 function initSupabase() {
+
   if (
     !window.supabase ||
     !configReady()
@@ -902,19 +1394,22 @@ function initSupabase() {
 
 
   supabaseClient =
-    window.supabase.createClient(
+    window.supabase
+      .createClient(
 
-      window.ELYARA_CONFIG
-        .SUPABASE_URL,
+        window.ELYARA_CONFIG
+          .SUPABASE_URL,
 
-      window.ELYARA_CONFIG
-        .SUPABASE_ANON_KEY
+        window.ELYARA_CONFIG
+          .SUPABASE_ANON_KEY
 
-    );
+      );
+
 }
 
 
 async function refreshSession() {
+
   if (!supabaseClient) {
     return null;
   }
@@ -933,30 +1428,41 @@ async function refreshSession() {
 
   updateAuthUi();
 
+
   return currentSession;
+
 }
 
 
 function updateAuthUi() {
+
   document.querySelectorAll(
     "[data-auth-label]"
-  ).forEach(el => {
+  ).forEach(
+    el => {
 
-    el.textContent =
-      currentSession
-        ? t("account")
-        : t("login");
+      el.textContent =
+        currentSession
+
+          ? t("account")
+
+          : t("login");
 
 
-    el.setAttribute(
-      "href",
+      el.setAttribute(
 
-      currentSession
-        ? "account.html"
-        : "login.html"
-    );
+        "href",
 
-  });
+        currentSession
+
+          ? "account.html"
+
+          : "login.html"
+
+      );
+
+    }
+  );
 
 
   const email =
@@ -968,22 +1474,32 @@ function updateAuthUi() {
 
   document.querySelectorAll(
     "[data-user-email]"
-  ).forEach(el => {
+  ).forEach(
+    el => {
 
-    el.textContent =
-      email;
+      el.textContent =
+        email;
 
-  });
+    }
+  );
+
 }
 
 
+/* =========================================================
+   GOOGLE LOGIN
+   ========================================================= */
+
 async function signInGoogle() {
+
   if (!supabaseClient) {
+
     alert(
       t("supabase_missing")
     );
 
     return;
+
   }
 
 
@@ -996,7 +1512,8 @@ async function signInGoogle() {
       .auth
       .signInWithOAuth({
 
-        provider: "google",
+        provider:
+          "google",
 
         options: {
           redirectTo
@@ -1006,14 +1523,18 @@ async function signInGoogle() {
 
 
   if (error) {
+
     alert(
       error.message
     );
+
   }
+
 }
 
 
 async function signOut() {
+
   if (!supabaseClient) {
     return;
   }
@@ -1030,12 +1551,20 @@ async function signOut() {
 
   window.location.href =
     "index.html";
+
 }
 
 
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
 async function startService(serviceId) {
+
   const service =
-    SERVICES[serviceId];
+    SERVICES[
+      serviceId
+    ];
 
 
   if (!service) {
@@ -1043,7 +1572,12 @@ async function startService(serviceId) {
   }
 
 
+  /*
+   * Servicios que necesitan cotización
+   */
+
   if (!service.checkout) {
+
     const url =
       new URL(
         "contact.html",
@@ -1062,8 +1596,13 @@ async function startService(serviceId) {
 
 
     return;
+
   }
 
+
+  /*
+   * Servicio con pago
+   */
 
   await refreshSession();
 
@@ -1086,6 +1625,7 @@ async function startService(serviceId) {
 
 
     return;
+
   }
 
 
@@ -1128,7 +1668,9 @@ async function startService(serviceId) {
 
     modalTitle.textContent =
       lang === "es"
+
         ? service.es
+
         : service.en;
 
   }
@@ -1145,6 +1687,7 @@ async function startService(serviceId) {
   if (modalAmount) {
 
     modalAmount.textContent =
+
       `${t("from")} $${(
         service.from * 0.5
       ).toFixed(2)} ${
@@ -1170,12 +1713,20 @@ async function startService(serviceId) {
 
   modal.style.display =
     "grid";
+
 }
 
 
+/* =========================================================
+   STRIPE CHECKOUT
+   ========================================================= */
+
 async function createCheckout(serviceId) {
+
   if (!currentSession) {
+
     await refreshSession();
+
   }
 
 
@@ -1210,19 +1761,24 @@ async function createCheckout(serviceId) {
 
   try {
 
-    const res =
+    const response =
       await fetch(
+
         "/api/create-checkout",
+
         {
 
-          method: "POST",
+          method:
+            "POST",
 
           headers: {
+
             "content-type":
               "application/json",
 
             authorization:
               `Bearer ${currentSession.access_token}`
+
           },
 
           body:
@@ -1231,14 +1787,15 @@ async function createCheckout(serviceId) {
             })
 
         }
+
       );
 
 
     const data =
-      await res.json();
+      await response.json();
 
 
-    if (!res.ok) {
+    if (!response.ok) {
 
       throw new Error(
         data.error ||
@@ -1252,10 +1809,10 @@ async function createCheckout(serviceId) {
       data.url;
 
 
-  } catch (err) {
+  } catch (error) {
 
     alert(
-      err.message
+      error.message
     );
 
 
@@ -1271,15 +1828,22 @@ async function createCheckout(serviceId) {
     }
 
   }
+
 }
 
+
+/* =========================================================
+   CONTACT FORM
+   ========================================================= */
 
 async function submitContact(form) {
 
   const payload =
     Object.fromEntries(
+
       new FormData(form)
         .entries()
+
     );
 
 
@@ -1296,9 +1860,11 @@ async function submitContact(form) {
 
   const { error } =
     await supabaseClient
+
       .from(
         "contact_requests"
       )
+
       .insert({
 
         user_id:
@@ -1346,14 +1912,20 @@ async function submitContact(form) {
 
   form.reset();
 
+
   applyLanguage();
 
 
   alert(
     t("request_received")
   );
+
 }
 
+
+/* =========================================================
+   ACCOUNT
+   ========================================================= */
 
 async function loadAccount() {
 
@@ -1367,9 +1939,7 @@ async function loadAccount() {
     !account ||
     !supabaseClient
   ) {
-
     return;
-
   }
 
 
@@ -1379,28 +1949,35 @@ async function loadAccount() {
   if (!currentSession) {
 
     account.innerHTML = `
+
       <section class="login-shell">
 
         <div class="login-card">
 
           <h1 class="serif">
+
             ${t("signed_out")}
+
           </h1>
 
           <a
             class="btn btn--navy"
             href="login.html"
           >
+
             ${t("login")}
+
           </a>
 
         </div>
 
       </section>
+
     `;
 
 
     return;
+
   }
 
 
@@ -1425,38 +2002,48 @@ async function loadAccount() {
 
   const { data: orders } =
     await supabaseClient
+
       .from("orders")
+
       .select(
         "service_id,service_name,amount_cents,status,created_at"
       )
+
       .eq(
         "user_id",
         user.id
       )
+
       .order(
         "created_at",
         {
-          ascending:false
+          ascending:
+            false
         }
       );
 
 
   const { data: requests } =
     await supabaseClient
+
       .from(
         "contact_requests"
       )
+
       .select(
         "service,message,status,created_at"
       )
+
       .eq(
         "user_id",
         user.id
       )
+
       .order(
         "created_at",
         {
-          ascending:false
+          ascending:
+            false
         }
       );
 
@@ -1476,22 +2063,27 @@ async function loadAccount() {
   if (ordersBox) {
 
     ordersBox.innerHTML =
+
       orders?.length
 
         ? orders
+
             .map(
               order => `
 
                 <div class="account-row">
 
                   <b>
+
                     ${
                       order.service_name ||
                       order.service_id
                     }
+
                   </b>
 
                   <span>
+
                     $${(
                       (
                         order.amount_cents ||
@@ -1499,14 +2091,18 @@ async function loadAccount() {
                       ) /
                       100
                     ).toFixed(2)}
+
                     ·
+
                     ${order.status}
+
                   </span>
 
                 </div>
 
               `
             )
+
             .join("")
 
         : `<p>${t("no_orders")}</p>`;
@@ -1517,46 +2113,64 @@ async function loadAccount() {
   if (requestsBox) {
 
     requestsBox.innerHTML =
+
       requests?.length
 
         ? requests
+
             .map(
               request => `
 
                 <div class="account-row">
 
                   <b>
+
                     ${
                       request.service ||
                       "General"
                     }
+
                   </b>
 
                   <span>
+
                     ${
                       request.status ||
                       "new"
                     }
+
                   </span>
 
                 </div>
 
               `
             )
+
             .join("")
 
         : `<p>${t("no_requests")}</p>`;
 
   }
+
 }
 
 
+/* =========================================================
+   DOM READY
+   ========================================================= */
+
 document.addEventListener(
+
   "DOMContentLoaded",
+
   async () => {
 
     initSupabase();
 
+
+    /*
+     * Supabase session
+     */
 
     if (supabaseClient) {
 
@@ -1566,6 +2180,7 @@ document.addEventListener(
       supabaseClient
         .auth
         .onAuthStateChange(
+
           (
             _event,
             session
@@ -1578,62 +2193,91 @@ document.addEventListener(
             updateAuthUi();
 
           }
+
         );
 
     }
 
 
+    /*
+     * Aplicar idioma inicial
+     */
+
     applyLanguage();
 
 
+    /*
+     * Botón EN / ES
+     */
+
     document.querySelectorAll(
       "[data-lang-toggle]"
-    ).forEach(btn => {
+    ).forEach(
+      btn => {
 
-      btn.addEventListener(
-        "click",
-        () => {
+        btn.addEventListener(
 
-          lang =
-            lang === "en"
-              ? "es"
-              : "en";
+          "click",
 
+          () => {
 
-          localStorage.setItem(
-            "elyaraLang",
-            lang
-          );
+            lang =
+              lang === "en"
+
+                ? "es"
+
+                : "en";
 
 
-          applyLanguage();
+            localStorage.setItem(
+              "elyaraLang",
+              lang
+            );
 
-        }
-      );
 
-    });
+            applyLanguage();
 
+          }
+
+        );
+
+      }
+    );
+
+
+    /*
+     * Menú móvil
+     */
 
     document.querySelectorAll(
       "[data-menu]"
-    ).forEach(btn => {
+    ).forEach(
+      btn => {
 
-      btn.addEventListener(
-        "click",
-        () => {
+        btn.addEventListener(
 
-          document
-            .querySelector(
-              "[data-mobile]"
-            )
-            ?.classList
-            .toggle("open");
+          "click",
 
-        }
-      );
+          () => {
 
-    });
+            document
+              .querySelector(
+                "[data-mobile]"
+              )
+              ?.classList
+              .toggle("open");
 
+          }
+
+        );
+
+      }
+    );
+
+
+    /*
+     * Animaciones
+     */
 
     const observer =
       new IntersectionObserver(
@@ -1660,7 +2304,8 @@ document.addEventListener(
         },
 
         {
-          threshold:0.12
+          threshold:
+            0.12
         }
 
       );
@@ -1669,84 +2314,128 @@ document.addEventListener(
     document.querySelectorAll(
       ".reveal"
     ).forEach(
-      el =>
-        observer.observe(el)
+      el => {
+
+        observer.observe(
+          el
+        );
+
+      }
     );
 
 
+    /*
+     * Google login
+     */
+
     document.querySelectorAll(
       "[data-google-login]"
-    ).forEach(btn => {
+    ).forEach(
+      btn => {
 
-      btn.addEventListener(
-        "click",
-        signInGoogle
-      );
+        btn.addEventListener(
+          "click",
+          signInGoogle
+        );
 
-    });
+      }
+    );
 
+
+    /*
+     * Sign out
+     */
 
     document.querySelectorAll(
       "[data-signout]"
-    ).forEach(btn => {
+    ).forEach(
+      btn => {
 
-      btn.addEventListener(
-        "click",
-        signOut
-      );
+        btn.addEventListener(
+          "click",
+          signOut
+        );
 
-    });
+      }
+    );
 
+
+    /*
+     * Servicios
+     */
 
     document.querySelectorAll(
       "[data-service-start]"
-    ).forEach(btn => {
+    ).forEach(
+      btn => {
 
-      btn.addEventListener(
-        "click",
-        () =>
-          startService(
-            btn.dataset
-              .serviceStart
-          )
-      );
+        btn.addEventListener(
 
-    });
+          "click",
 
+          () => {
 
-    document.querySelectorAll(
-      "[data-close]"
-    ).forEach(btn => {
-
-      btn.addEventListener(
-        "click",
-        () => {
-
-          const modal =
-            document.getElementById(
-              "orderModal"
+            startService(
+              btn.dataset
+                .serviceStart
             );
-
-
-          if (modal) {
-
-            modal.style.display =
-              "none";
 
           }
 
-        }
-      );
+        );
 
-    });
+      }
+    );
 
+
+    /*
+     * Cerrar modal
+     */
+
+    document.querySelectorAll(
+      "[data-close]"
+    ).forEach(
+      btn => {
+
+        btn.addEventListener(
+
+          "click",
+
+          () => {
+
+            const modal =
+              document.getElementById(
+                "orderModal"
+              );
+
+
+            if (modal) {
+
+              modal.style.display =
+                "none";
+
+            }
+
+          }
+
+        );
+
+      }
+    );
+
+
+    /*
+     * Stripe
+     */
 
     document
       .getElementById(
         "payDepositBtn"
       )
       ?.addEventListener(
+
         "click",
+
         event => {
 
           createCheckout(
@@ -1757,8 +2446,13 @@ document.addEventListener(
           );
 
         }
+
       );
 
+
+    /*
+     * Contact form
+     */
 
     const contactForm =
       document.querySelector(
@@ -1770,20 +2464,28 @@ document.addEventListener(
 
       contactForm
         .addEventListener(
+
           "submit",
+
           event => {
 
             event.preventDefault();
+
 
             submitContact(
               contactForm
             );
 
           }
+
         );
 
     }
 
+
+    /*
+     * Servicio enviado por URL
+     */
 
     const params =
       new URLSearchParams(
@@ -1799,7 +2501,9 @@ document.addEventListener(
 
     if (
       serviceParam &&
-      SERVICES[serviceParam]
+      SERVICES[
+        serviceParam
+      ]
     ) {
 
       const select =
@@ -1818,7 +2522,12 @@ document.addEventListener(
     }
 
 
+    /*
+     * Account
+     */
+
     await loadAccount();
 
   }
+
 );
